@@ -1,0 +1,508 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 60px;
+            background-image: url('littérature0.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 40px;
+            border: 5px solid white;
+            padding: 50px;
+            display: inline-block;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        li {
+            float: right;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .column {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .question {
+            display: flex;
+            justify-content: space-between;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 5px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .question-image-container {
+            width: 40%;
+        }
+
+        .question-image {
+            max-width: 210PX;
+            height:290px;
+            border-radius: 8px;
+        }
+
+        img {
+            width: 200PX;
+            max-height: 290px;
+        }
+
+        .options {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .options label {
+            cursor: pointer;
+            padding: 10px;
+            border: 2px solid #e3c593;
+            border-radius: 4px;
+            background-color: #e3c593;
+            color: #fff;
+            transition: background-color 0.3s;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .options input[type="radio"] {
+            display: none;
+            background-color: #c47f1d;
+        }
+
+    .options label:hover,
+    .options label:active {
+        background-color: #c47f1d;
+    }
+
+    .options input[type="radio"]:checked + label {
+        background-color: #c47f1d;
+        color: #fff;
+    }
+
+
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .incorrect {
+            color: red;
+            animation: shake 0.5s ease-in-out 3;
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25%, 75% {
+                transform: translateX(-5px);
+            }
+            50% {
+                transform: translateX(5px);
+            }
+        }
+
+button {
+    background-color: red;
+    color: white;
+    padding: 15px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Add margin to the top */
+}
+
+button:hover {
+    background-color: darkred;
+}
+
+        .score-circle {
+            position: fixed;
+            bottom: 20px; /* Adjust the distance from the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: red;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out 3;
+        }
+
+
+        footer {
+            background-color: #ffffff;
+            color: black;
+            text-align: justify-all;
+            padding: 50px;
+            width: 100%;
+            clear: both;
+        }
+
+    </style>
+    <title>Quiz Général</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>QUIZ <strong>Culture G</strong></h1>
+    </header>
+
+    <ul>
+        <li><a href="page d'accueil1.html" target="_blank"><strong>Accueil </strong></a>
+</li>        <li class="dropdown">
+            <a href="#" class="dropbtn"><strong>Catégorie</strong></a>
+            <div class="dropdown-content">
+                <a href="disney.html" target="_blank">Disney </a>
+                <a href="culture.html" target="_blank">Culture G</a>
+                <a href="littérature.html" target="_blank">Littérature</a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="column">
+        <!-- Question 1 -->
+        <div class="question" id="question1">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="idée.png" alt="Question 1 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>1. 'Indépendamment de ce qui arrive, ce qui n'arrive pas, c'est l'attente qui est magnifique '</strong></p>
+                <input type="radio" name="q1" value="a" id="q1a">
+                <label for="q1a">Nadja de Breton</label>
+                <input type="radio" name="q1" value="b" id="q1b">
+                <label for="q1b">Le fou d'Elsa d'Aragon</label>
+                <input type="radio" name="q1" value="c" id="q1c">
+                <label for="q1c">Le chef d'oeuvre inconnu de Balzac</label>
+                <input type="radio" name="q1" value="d" id="q1d">
+                <label for="q1d">L'amour fou de Breton</label>
+            </div>
+            <div class="feedback" id="feedback1"></div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question" id="question2">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="amour.png" alt="Question 2 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>2. « Le seul vice, c'est l'amour de l'échec »</strong></p>
+                <input type="radio" name="q2" value="a" id="q2a">
+                <label for="q2a">Fight Club de Palahniuk</label>
+                <input type="radio" name="q2" value="b" id="q2b">
+                <label for="q2b">La pianiste de Jelinek</label>
+                <input type="radio" name="q2" value="c" id="q2c">
+                <label for="q2c">Le pur et l'impur de Colette</label>
+                <input type="radio" name="q2" value="d" id="q2d">
+                <label for="q2d">Cosmétique de l'ennemi d'Amélie Nothomb</label>
+            </div>
+            <div class="feedback" id="feedback2"></div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question" id="question3">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="question3.png" alt="Question 3 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>3. « S'ils sont insensibles, c'est qu'ils ont commencé à mourir »</strong></p>
+                <input type="radio" name="q3" value="a" id="q3a">
+                <label for="q3a">Les nourritures terrestres de Gide</label>
+                <input type="radio" name="q3" value="b" id="q3b">
+                <label for="q3b">Lettres à un jeune poète de Rilke</label>
+                <input type="radio" name="q3" value="c" id="q3c">
+                <label for="q3c">La mort difficile de Crevel</label>
+                <input type="radio" name="q3" value="d" id="q3d">
+                <label for="q3d">Chatterton de Vigny</label>
+            </div>
+            <div class="feedback" id="feedback3"></div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question" id="question4">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="idée0.png" alt="Question 4 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>4. 'Les grandes passions sont solitaires'</strong></p>
+                <input type="radio" name="q4" value="a" id="q4a">
+                <label for="q4a">Atala de Chateaubriand</label>
+                <input type="radio" name="q4" value="b" id="q4b">
+                <label for="q4b">Les pensées de Pascal</label>
+                <input type="radio" name="q4" value="c" id="q4c">
+                <label for="q4c">Le Misanthrope de Molière</label>
+                <input type="radio" name="q4" value="d" id="q4d">
+                <label for="q4d">Britannicus de Racine</label>
+            </div>
+            <div class="feedback" id="feedback4"></div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question" id="question5">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="reve.png" alt="Question 5 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>5. 'Le rêve est l'action des impuissants'</strong></p>
+                <input type="radio" name="q5" value="a" id="q5a">
+                <label for="q5a">Corpus Christine de Monnehay</label>
+                <input type="radio" name="q5" value="b" id="q5b">
+                <label for="q5b">Attentat d'Amélie Nothomb</label>
+                <input type="radio" name="q5" value="c" id="q5c">
+                <label for="q5c">Les Armes secrètes de Cortazar</label>
+                <input type="radio" name="q5" value="d" id="q5d">
+                <label for="q5d">Les mains sales de Sartre</label>
+            </div>
+            <div class="feedback" id="feedback5"></div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="question" id="question6">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="idée2.png" alt="Question 6 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>6. 'Rien n'est plus sot que de traiter avec sérieux des choses frivoles; mais rien n'est plus spirituel que de servir les frivolités à des choses sérieuses'</strong></p>
+                <input type="radio" name="q6" value="a" id="q6a">
+                <label for="q6a">Les Caractères de la Bruyère</label>
+                <input type="radio" name="q6" value="b" id="q6b">
+                <label for="q6b">Candide de Voltaire</label>
+                <input type="radio" name="q6" value="c" id="q6c">
+                <label for="q6c">Les lettres persanes de Montesquieu</label>
+                <input type="radio" name="q6" value="d" id="q6d">
+                <label for="q6d">Eloge de la folie d'Erasme</label>
+            </div>
+            <div class="feedback" id="feedback6"></div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="question" id="question7">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="idée3.png" alt="Question 7 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>7. 'Le délire de mentir et de croire s'attrape comme la gale'</strong></p>
+                <input type="radio" name="q7" value="a" id="q7a">
+                <label for="q7a">Caligula d'Albert Camus</label>
+                <input type="radio" name="q7" value="b" id="q7b">
+                <label for="q7b">Voyage au bout de la nuit de Céline</label>
+                <input type="radio" name="q7" value="c" id="q7c">
+                <label for="q7c">American Psycho de Bret Easton Ellis</label>
+                <input type="radio" name="q7" value="d" id="q7d">
+                <label for="q7d">Rhinocéros de Ionesco</label>
+            </div>
+            <div class="feedback" id="feedback7"></div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="question" id="question8">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="idée1.png" alt="Question 8 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>8. 'Un tourment surgit là où en meurt un autre. '</strong></p>
+                <input type="radio" name="q8" value="a" id="q8a">
+                <label for="q8a">Hernani de Victor Hugo</label>
+                <input type="radio" name="q8" value="b" id="q8b">
+                <label for="q8b">René de Chateaubriand</label>
+                <input type="radio" name="q8" value="c" id="q8c">
+                <label for="q8c">Le mythe de Sisyphe d'Albert Camus </label>
+                <input type="radio" name="q8" value="d" id="q8d">
+                <label for="q8d">Les brigands de Schiller</label>
+            </div>
+            <div class="feedback" id="feedback8"></div>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="question" id="question9">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="intelligence.png" alt="Question 9 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>9. ' Les hommes m'ont appelé fou, mais la science ne nous a pas encore appris si la folie est ou n'est pas le sublime de l'intelligence”</strong></p>
+                <input type="radio" name="q9" value="a" id="q9a">
+                <label for="q9a">Docteur Jeckyll et Mister Hyde de Stevenson</label>
+                <input type="radio" name="q9" value="b" id="q9b">
+                <label for="q9b">Le mythe de Chtulu de Lovecraft</label>
+                <input type="radio" name="q9" value="c" id="q9c">
+                <label for="q9c">Les histoires extraordinaires de Poe</label>
+                <input type="radio" name="q9" value="d" id="q9d">
+                <label for="q9d">Les lettres à Jacques Rivière d'Artaud</label>
+            </div>
+            <div class="feedback" id="feedback9"></div>
+        </div>
+
+        <!-- Question 10 -->
+        <div class="question" id="question10">
+            <div class="question-image-container">
+                <!-- Remplacez l'image avec le chemin approprié -->
+                <img src="temps.png" alt="Question 10 Image" class="question-image">
+            </div>
+            <div class="options">
+                <p><strong>10. 'Le temps, c'est de l'éternité pliée'</strong></p>
+                <input type="radio" name="q10" value="a" id="q10a">
+                <label for="q10a">Ubu Roi de Jarry</label>
+                <input type="radio" name="q10" value="b" id="q10b">
+                <label for="q10b">La folle de Chaillot de Giraudoux</label>
+                <input type="radio" name="q10" value="c" id="q10c">
+                <label for="q10c">La machine infernale de Cocteau</label>
+                <input type="radio" name="q10" value="d" id="q10d">
+                <label for="q10d">Préface à La mort difficile par Dali</label>
+            </div>
+            <div class="feedback" id="feedback10"></div>
+        </div>
+
+        <button onclick="submitQuiz()">Valider</button>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var correctAnswers = ["d", "b", "c", "a", "a", "b", "a", "d", "c", "c"];
+            var score = 0;
+
+            for (var i = 1; i <= 10; i++) {
+                var selectedAnswer = document.querySelector('input[name="q' + i + '"]:checked');
+                var feedback = document.getElementById('feedback' + i);
+
+                if (selectedAnswer) {
+                    var userAnswer = selectedAnswer.value;
+
+                    if (userAnswer === correctAnswers[i - 1]) {
+                        feedback.textContent = "Bonne réponse!";
+                        feedback.className = "feedback correct";
+                        score++;
+                    } else {
+                        feedback.textContent = "Mauvaise réponse.";
+                        feedback.className = "feedback incorrect";
+                    }
+                }
+            }
+
+            // Masquer le bouton après la soumission
+            document.querySelector('button').style.display = 'none';
+
+            // Afficher le score
+            var scoreContainerCircle = document.createElement('div');
+            scoreContainerCircle.textContent = score + "/10";
+            scoreContainerCircle.className = "score-circle";
+            document.body.appendChild(scoreContainerCircle);
+        }
+    </script>
+
+    <div class="contact-section">
+        <footer>
+            <p><u><strong>kwiz@quiz.com</strong></u></p>
+            <p><u><strong>234 567 890</strong></u></p>
+            <p><u><strong>Copyright © KWIZ</strong></u></p>
+        </footer>
+    </div>
+
+</body>
+
+</html> 

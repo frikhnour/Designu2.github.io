@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KWIZ - Disney</title>
+    <link rel="icon" href="logo.png" type="image/png"> <!-- Ajoutez ici la source de votre image de logo -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+        
+        header {
+            position: relative;
+            text-align: center;
+            color: white;
+            padding: 100px;
+            background-image: url('disney1.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column; /* Ajout pour aligner le titre au centre */
+            align-items: center; /* Ajout pour aligner le titre au centre */
+        }
+
+        h1 {
+            font-size: 40px;
+            border: 5px solid white;
+            padding: 50px;
+            display: inline-block;
+            margin: 0 auto;
+            z-index: 1;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        li {
+            float: right;
+        }
+
+        li a,
+        .dropbtn {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .recipes-section {
+            background-color: #ffc091;
+            padding: 100px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            width: 50%;
+            margin: 0 auto; /* Centre le contenu dans la colonne */
+            background-color: #ffffff;
+            text-align: center; /* Centre le texte dans la colonne */
+            padding: 20px;
+        }
+
+        .recipe {
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 30px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between; /* Met l'image à droite et le texte à gauche */
+            flex-wrap: wrap; /* Permet de passer à une disposition en colonne pour les petits écrans */
+        }
+
+        .recipe img {
+            width: 500px; /* Ajuste la largeur de l'image à 100% de la largeur de son conteneur */
+            max-width: 400px;
+            height: auto;
+            border-radius: 1px;
+        }
+
+        .text-content {
+            front-size: 80px; /* Ajuste la largeur du texte */
+        }
+
+        .play-button {
+            margin-top: 20px;
+            background-color: #007BFF; /* Couleur bleue pour le bouton Play */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap-reverse; /* Inverse l'ordre des éléments dans la ligne */
+        }
+
+        .recipe-item {
+            width: 40%; /* Ajuste la largeur de l'image */
+            margin-bottom: 20px;
+        }
+
+        .image-title {
+            text-align: center;
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: black;
+            text-align: center;
+            padding: 50px;
+            width: 100%;
+            clear: both;
+        }
+
+        .presentation-section {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>QUIZ <strong>Disney</strong></h1>
+    </header>
+
+    <ul>
+        <li><a href="page d'accueil1.html" target="_blank"><strong>Accueil </strong></a>
+</li>        <li class="dropdown">
+            <a href="#" class="dropbtn"><strong>Catégorie</strong></a>
+            <div class="dropdown-content">
+                <a href="disney.html" target="_blank">Disney </a>
+                <a href="culture.html" target="_blank">Culture G</a>
+                <a href="littérature.html" target="_blank">Littérature</a>
+            </div>
+        </li>
+    </ul>
+
+    <div class="column">
+        <div class="recipe">
+            <div class="image-container">
+                <div class="recipe-item">
+                    <img src="imagedisney.png" alt="Logo du Site">
+                </div>
+                <div class="recipe-item text-content">
+                    <p><strong>Tester vos connaissances</strong></p>
+                    <p>Connaissez-vous Cendrillon et ses amies ? Simba et Olaf ? Alors, tester vos connaissances dans ce quiz Disney !</p>
+                    <button class="play-button" onclick="window.location.href='quiz disney.html'">Play</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <footer>
+            <p><u><strong>kwiz@quiz.com</strong></u></p>
+            <p><u><strong>234 567 890</strong></u></p>
+            <p><u><strong>Copyright © KWIZ</strong></u></p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KWIZ</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            color: #ffc091;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            
+            background: rgba(255, 255, 255, 0.3);
+
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 125%;
+            height: 125%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 150px;
+            display: inline-block;
+            margin: 0;
+            text-align: left;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 20px;
+            z-index: 1;
+        }
+
+        h2 {
+            font-size: 70px;
+            color: black;
+        }
+
+        h3 {
+            font-size: 50px;
+            display: inline-block;
+            margin: 0;
+            text-align: left;
+            position: absolute;
+            top: 70%;
+            transform: translateY(-50%);
+            left: 20px;
+            z-index: 1;
+            color : white;
+        }
+
+
+        .view-quiz-button {
+        position: relative;
+        transform: translateX(350%);
+        background: transparent;
+        border: 2px solid black;
+        color: black;
+         padding: 20px; /* Adjusted padding */
+        text-align: center;
+         text-decoration: none;
+         display: inline-block; /* Changed from inline-block to block */
+         font-size: 20px; /* Adjusted font size */
+        margin: 20px auto; /* Centering using margin */
+        cursor: pointer;
+ 
+        }
+
+        ul {
+            font-size: 50 px;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        li {
+            float: right;
+        }
+
+        li a,
+        .dropbtn {
+
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 18px 20px;
+            text-decoration: none;
+        }
+
+        li a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        li.dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: relative;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        #presentation-projet {
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+            z-index: 1;
+            color : black ;
+        }
+
+        .chef-section {
+            background-color: #ffc091;
+            color: white;
+            padding: 0px;
+            text-align: center;
+        }
+
+        .recipes-section {
+            background-color: #ffc091;
+            padding: 50px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .column {
+            width: 30%;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            front-size : 70 px;
+        }
+
+        .recipe {
+            cursor: pointer;
+            border: 1px solid #ddd;
+            padding: 1px;
+            border-radius: 1px;
+            front-size :70 px;
+
+        }
+
+        .recipe img {   
+            max-width: 408px;
+            height: 300px; 
+            border-radius: 1px;
+            padding: 1px;
+
+        }
+
+        .contact-section {
+            text-align: center ;
+            margin-top: 50px;
+            padding: 1px;
+
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .recipe-item {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .image-title {
+            text-align: center;
+        }
+
+        .conseil {
+            text-align : center;
+            front-size : 20px;
+        }
+
+        footer {
+            background-color: #ffffff;
+            color: black;
+            text-align: center;
+            padding: 50 px;
+            width: 100%;
+            clear: both;
+        }
+
+        .presentation-section {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <video autoplay muted loop>
+            <source src="bg2.mp4.mp4" type="video/mp4">
+        </video>
+        <h1>Bienvenue à <strong>KWIZ</strong> </h1>
+        <h3> Essayez, testez, et challengez vous </h3>
+    </header>
+
+    <ul>
+        <li>        <li><a href="page d'accueil1.html" target="_blank"><strong>Accueil </strong></a></li>
+        <li class="dropdown">
+
+            <a href="#" class="dropbtn"><strong>Catégorie</strong></a>
+            <div class="dropdown-content">
+                <a href="disney.html" target="_blank">Disney </a>
+                <a href="culture.html" target="_blank">Culture G</a>
+                <a href="littérature.html" target="_blank">Littérature</a>
+            </div>
+        </li>
+    </ul>
+
+    <div id="presentation-projet" class="centered-section presentation-section">
+        <h2>Bienvenue </h2>
+        <p>Découvrez l'univers captivant des connaissances, des réflexions et des défis intellectuels avec notre site de quiz, un espace dédié à l'apprentissage ludique et à la découverte de nouvelles informations. </p>
+        <p>Que vous soyez passionné par la littérature, la culture générale, la science, ou tout autre domaine, notre plateforme propose une variété de quiz stimulants pour tester vos connaissances et enrichir votre esprit.</p>
+    </div>
+
+    <div class="view-quiz-button" onclick="scrollToQuiz()"> <strong>VOIR LES QUIZ</strong></div>
+
+    <div class="chef-section">
+        <img src="quiz.png" alt="Logo du Site" style="width: 100%;">
+    </div>
+
+    <div class="recipes-section">
+        <div class="column">
+            <div class="recipe">
+                <div class="image-container">
+                    <div class="recipe-item">
+                        <a href="disney.html">
+                            <img src="disney.png" alt="Logo du Site">
+                        </a>
+                    </div>
+                </div>
+                <p><strong>Disney</strong></p>
+                <p>Connaissez-vous Cendrillon et compagnie ? Simba et Olaf ? Alors, tester vos connaissances dans ce quiz disney ! </p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="recipe">
+                <div class="image-container">
+                    <div class="recipe-item">
+                        <a href="littérature.html">
+                            <img src="littérature.png" alt="Logo du Site">
+                        </a>
+                    </div>
+                </div>
+                <p><strong>Littérature</strong></p>
+                <p>Testez votre compréhension des personnages emblématiques et des créations littéraires qui ont marqué l'histoire. </p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="recipe">
+                <div class="image-container">
+                    <div class="recipe-item">
+                        <a href="culture.html">
+                            <img src="culture.png" alt="Logo du Site">
+                        </a>
+                    </div>
+                </div>
+                <p><strong>Culture G</strong></p>
+                <p>Etes vous pret ? Alors, préparez-vous à élargir votre horizon et à découvrir la richesse de la connaissance universelle.</p>
+            </div>
+        </div>
+      <div class= "conseil">
+       <p> <strong> Cliquer sur le quiz que vous voulez faire </strong> </p>
+   </div>
+     
+</div>
+
+
+    <div class="contact-section">
+        <footer>
+            </div>
+            <div class="contact-section">
+                <p> <u> <strong> kwiz@quiz.com </strong> </u></p>
+                <p><u> <strong>234 567 890</strong> </u></p>
+                <p><u> <strong>Copyright © KWIZ </strong> </u></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToQuiz() {
+            document.querySelector('.recipes-section').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+
+</html>
